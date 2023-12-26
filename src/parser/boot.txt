@@ -1,0 +1,78 @@
+Step welcome
+    Speak "$name,您好，请问有什么可以帮您?"
+    Listen
+    branch "投诉" complain
+    branch "库" repository
+    branch "商店" store
+    branch "买" buy
+    branch "打开" start
+    branch "取消" welcome
+Step complain
+    Speak "请问您要投诉什么呢？"
+    Listen
+    Goto complainDeal
+Step complainDeal
+    Speak "感谢您的批评，我们一定会参考您的建议的"
+    Listen
+    branch "投诉" complain
+    branch "库" repository
+    branch "商店" store
+    branch "买" buy
+    branch "打开" start
+    branch "取消" welcome
+Step repository
+    Speak "您的库中含有以下游戏"
+    List $repository
+    Listen
+    branch "投诉" complain
+    branch "库" repository
+    branch "商店" store
+    branch "买" buy
+    branch "打开" start
+    branch "取消" welcome
+Step store
+    Speak "商店目前提供如下游戏"
+    List $store
+    Listen
+    branch "投诉" complain
+    branch "库" repository
+    branch "商店" store
+    branch "买" buy
+    branch "打开" start
+    branch "取消" welcome
+Step buy
+    Speak "请输入游戏名称"
+    Listen
+    Buy $input
+    Goto buyDeal
+Step buyDeal
+    Speak "购买成功,花费$price元"
+    Listen
+    branch "投诉" complain
+    branch "库" repository
+    branch "商店" store
+    branch "买" buy
+    branch "打开" start
+    branch "取消" welcome
+Step default
+    Speak "对不起,我们暂时没有提供该服务,请重新输入"
+    Listen
+    branch "投诉" complain
+    branch "库" repository
+    branch "商店" store
+    branch "买" buy
+    branch "打开" start
+    branch "取消" welcome
+Step start
+    Speak "请输入游戏名称"
+    Listen
+    Goto startDeal
+Step startDeal
+    Speak "$input,启动"
+    Listen
+    branch "投诉" complain
+    branch "库" repository
+    branch "商店" store
+    branch "买" buy
+    branch "打开" start
+    branch "取消" welcome
